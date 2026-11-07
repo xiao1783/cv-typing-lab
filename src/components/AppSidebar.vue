@@ -59,28 +59,42 @@ const completionPct = computed(() =>
 
 <style scoped>
 .sidebar {
+  position: relative;
   height: 100%;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(180deg, var(--cv-primary-deep) 0%, #14306b 100%);
+  background: linear-gradient(185deg, #16307a 0%, #10245c 48%, #0c1c48 100%);
   color: #cdddfb;
   overflow: hidden;
 }
+.sidebar::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -90px;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.28), transparent 70%);
+  pointer-events: none;
+}
 .brand {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 18px 16px;
+  gap: 11px;
+  padding: 20px 16px 18px;
 }
 .brand-badge {
-  width: 38px;
-  height: 38px;
-  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
   background: linear-gradient(135deg, #38bdf8, #06b6d4);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  box-shadow: 0 8px 18px rgba(56, 189, 248, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.35);
 }
 .brand-mark {
   font-family: var(--cv-mono);
@@ -101,34 +115,52 @@ const completionPct = computed(() =>
 .brand-text small {
   color: #93b4e8;
   font-size: 11px;
+  margin-top: 1px;
 }
 .nav-list {
+  position: relative;
   flex: 1;
-  padding: 8px 10px;
+  padding: 10px 11px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 5px;
   overflow-y: auto;
 }
 .nav-item {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 11px;
-  padding: 10px 12px;
-  border-radius: 10px;
-  color: #c2d4f4;
+  padding: 10px 13px;
+  border-radius: 12px;
+  color: #b9cdf2;
   font-size: 14px;
+  font-weight: 500;
   white-space: nowrap;
-  transition: background 0.18s ease, color 0.18s ease;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 .nav-item:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.09);
   color: #fff;
+  transform: translateX(2px);
 }
 .nav-item.active {
-  background: linear-gradient(90deg, rgba(56, 189, 248, 0.28), rgba(6, 182, 212, 0.18));
+  background: linear-gradient(100deg, rgba(56, 189, 248, 0.32), rgba(6, 182, 212, 0.16));
   color: #fff;
-  box-shadow: inset 3px 0 0 #38bdf8;
+  font-weight: 600;
+  box-shadow: 0 8px 18px rgba(8, 20, 60, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+.nav-item.active::before {
+  content: '';
+  position: absolute;
+  left: -3px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 20px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #38bdf8, #22d3ee);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.8);
 }
 .nav-icon {
   font-size: 18px;
@@ -138,20 +170,27 @@ const completionPct = computed(() =>
   justify-content: center;
   padding: 10px;
 }
+.sidebar.collapsed .nav-item.active::before {
+  display: none;
+}
 .sidebar-footer {
-  padding: 14px 16px 18px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  margin: 6px 12px 16px;
+  padding: 14px 14px 13px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.09);
 }
 .footer-head {
   display: flex;
   justify-content: space-between;
   font-size: 12px;
-  color: #b9cdf0;
-  margin-bottom: 8px;
+  color: #c3d4f5;
+  margin-bottom: 9px;
 }
 .sidebar-footer p {
-  margin: 8px 0 0;
+  margin: 9px 0 0;
   font-size: 11px;
-  color: #8faad6;
+  color: #93add8;
 }
 </style>

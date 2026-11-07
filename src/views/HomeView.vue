@@ -161,18 +161,50 @@ onMounted(async () => {
 
 <style scoped>
 .hero {
-  padding: 34px 38px;
+  position: relative;
+  overflow: hidden;
+  padding: 42px 42px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  margin-bottom: 18px;
-  background: linear-gradient(120deg, #eff6ff, #ecfeff);
+  margin-bottom: 20px;
+  background: var(--cv-gradient-hero);
+  border: 1px solid rgba(37, 99, 235, 0.1);
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  right: -90px;
+  top: -130px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.32), transparent 68%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  left: -110px;
+  bottom: -150px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.22), transparent 68%);
+  pointer-events: none;
+}
+.hero-text {
+  position: relative;
+  z-index: 1;
 }
 .hero-text h1 {
-  margin: 0 0 8px;
-  font-size: 30px;
-  color: var(--cv-primary);
+  margin: 0 0 10px;
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  background: var(--cv-gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 .slogan {
   font-size: 14px;
@@ -191,8 +223,23 @@ onMounted(async () => {
   gap: 12px;
 }
 .hero-visual {
-  color: var(--cv-primary);
-  opacity: 0.85;
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  width: 196px;
+  height: 196px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: var(--cv-gradient-brand);
+  box-shadow: 0 24px 50px rgba(37, 99, 235, 0.32), inset 0 2px 0 rgba(255, 255, 255, 0.35);
+  animation: cv-float 5s ease-in-out infinite;
+}
+@keyframes cv-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
 }
 .stat-grid {
   display: grid;
@@ -232,10 +279,17 @@ onMounted(async () => {
   gap: 12px;
 }
 .overview-item {
-  padding: 12px 14px;
+  padding: 14px 16px;
   background: var(--cv-bg);
-  border-radius: 10px;
+  border: 1px solid var(--cv-border-soft);
+  border-radius: 12px;
   cursor: pointer;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+.overview-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--cv-shadow-md);
+  border-color: rgba(37, 99, 235, 0.3);
 }
 .overview-item strong { font-size: 13px; }
 .overview-item p { margin: 4px 0 0; font-size: 12px; color: var(--cv-text-secondary); }

@@ -32,14 +32,19 @@ withDefaults(
   gap: 14px;
   padding: 18px;
 }
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--cv-shadow-hover);
+}
 .stat-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 .stat-icon.blue { background: var(--cv-primary-soft); color: var(--cv-primary); }
 .stat-icon.cyan { background: var(--cv-cyan-soft); color: var(--cv-cyan); }

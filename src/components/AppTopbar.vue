@@ -128,13 +128,18 @@ function onSearch(id: string) {
 
 <style scoped>
 .topbar {
+  position: sticky;
+  top: 0;
+  z-index: 90;
   height: var(--cv-topbar-h);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 22px;
-  background: var(--cv-card);
-  border-bottom: 1px solid var(--cv-border);
+  padding: 0 24px;
+  background: var(--cv-glass-bg);
+  backdrop-filter: saturate(160%) blur(14px);
+  -webkit-backdrop-filter: saturate(160%) blur(14px);
+  border-bottom: 1px solid var(--cv-glass-border);
   gap: 14px;
 }
 .topbar-left {
@@ -162,13 +167,19 @@ function onSearch(id: string) {
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 7px 12px;
+  padding: 7px 13px;
   border-radius: 999px;
   background: var(--cv-primary-soft);
   color: var(--cv-primary-deep);
   font-size: 13px;
   font-weight: 600;
   white-space: nowrap;
+  border: 1px solid rgba(37, 99, 235, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.top-chip:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.16);
 }
 html.dark .top-chip {
   color: #bfdbfe;
@@ -191,14 +202,15 @@ html.dark .top-chip {
   background: var(--cv-bg);
 }
 .avatar {
-  width: 34px;
-  height: 34px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
+  box-shadow: 0 6px 14px rgba(15, 31, 61, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 .user-name {
   font-size: 13px;

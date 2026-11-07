@@ -109,7 +109,8 @@ export const settingsRepo = {
     return rec ? { ...DEFAULT_SETTINGS, ...rec } : { ...DEFAULT_SETTINGS }
   },
   save(settings: SettingsRecord): Promise<string> {
-    return db.settings.put(settings)
+    // Pinia 响应式 Proxy 无法结构化克隆，设置值均为原始类型，浅展开为普通对象
+    return db.settings.put({ ...settings })
   }
 }
 
