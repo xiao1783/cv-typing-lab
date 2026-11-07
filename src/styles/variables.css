@@ -1,0 +1,51 @@
+:root {
+  /* 品牌色：深蓝 / 天空蓝 / 青 */
+  --cv-primary: #1d4ed8;
+  --cv-primary-deep: #1e3a8a;
+  --cv-sky: #0ea5e9;
+  --cv-cyan: #06b6d4;
+  --cv-primary-soft: #e8f1ff;
+  --cv-cyan-soft: #e0f7fa;
+
+  --cv-bg: #f5f8ff;
+  --cv-bg-deep: #eef3fc;
+  --cv-card: #ffffff;
+  --cv-border: #e3eaf6;
+  --cv-text: #1e293b;
+  --cv-text-regular: #475569;
+  --cv-text-secondary: #64748b;
+  --cv-text-placeholder: #94a3b8;
+
+  --cv-success: #16a34a;
+  --cv-success-soft: #dcfce7;
+  --cv-danger: #dc2626;
+  --cv-danger-soft: #fee2e2;
+  --cv-warning: #d97706;
+  --cv-warning-soft: #fef3c7;
+
+  --cv-radius-sm: 8px;
+  --cv-radius: 12px;
+  --cv-radius-lg: 16px;
+  --cv-shadow: 0 6px 20px rgba(30, 58, 138, 0.08);
+  --cv-shadow-hover: 0 10px 28px rgba(30, 58, 138, 0.14);
+  --cv-sidebar-w: 232px;
+  --cv-topbar-h: 64px;
+
+  --cv-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
+    'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --cv-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', Consolas, 'Courier New', monospace;
+}
+
+html.dark {
+  --cv-bg: #0f172a;
+  --cv-bg-deep: #0b1220;
+  --cv-card: #162033;
+  --cv-border: #24334d;
+  --cv-text: #e2e8f0;
+  --cv-text-regular: #cbd5e1;
+  --cv-text-secondary: #94a3b8;
+  --cv-primary-soft: #172554;
+  --cv-cyan-soft: #083344;
+  --cv-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  --cv-shadow-hover: 0 10px 28px rgba(0, 0, 0, 0.5);
+}

@@ -1,0 +1,49 @@
+/* Monaco 编辑器装饰与局部样式（全局，Monaco 渲染在组件作用域之外） */
+
+.cv-input-error {
+  background: rgba(220, 38, 38, 0.22) !important;
+  border-bottom: 2px solid #dc2626;
+  border-radius: 2px;
+}
+
+.cv-input-correct {
+  color: #15803d;
+}
+
+.cv-target-line {
+  background: rgba(14, 165, 233, 0.14);
+  border-left: 3px solid #0ea5e9;
+}
+
+.cv-target-char {
+  background: rgba(6, 182, 212, 0.25);
+  border-radius: 2px;
+}
+
+.cv-monaco .monaco-editor,
+.cv-monaco .monaco-editor .margin {
+  border-radius: 10px;
+}
+
+.cv-monaco .monaco-editor {
+  border: 1px solid var(--cv-border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* 填空输入 */
+.blank-input {
+  display: inline-block;
+  margin: 0 4px;
+  font-family: var(--cv-mono);
+}
+.blank-input :deep(.el-input__wrapper) {
+  border-radius: 6px;
+  padding: 0 8px;
+}
+.blank-input.is-error :deep(.el-input__wrapper) {
+  box-shadow: 0 0 0 1px #dc2626 inset;
+}
+.blank-input.is-pass :deep(.el-input__wrapper) {
+  box-shadow: 0 0 0 1px #16a34a inset;
+}

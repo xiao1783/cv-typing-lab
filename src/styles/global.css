@@ -1,0 +1,175 @@
+@import './variables.css';
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--cv-font);
+  background: var(--cv-bg);
+  color: var(--cv-text);
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: var(--cv-primary);
+  text-decoration: none;
+}
+
+code,
+pre,
+.cv-mono {
+  font-family: var(--cv-mono);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #c3d0e6;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9fb4d4;
+}
+html.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
+/* 通用卡片 */
+.cv-card {
+  background: var(--cv-card);
+  border: 1px solid var(--cv-border);
+  border-radius: var(--cv-radius-lg);
+  box-shadow: var(--cv-shadow);
+}
+
+.cv-page {
+  padding: 24px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.cv-page-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 4px;
+  color: var(--cv-text);
+}
+
+.cv-page-sub {
+  color: var(--cv-text-secondary);
+  margin: 0 0 20px;
+}
+
+.cv-section-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cv-section-title::before {
+  content: '';
+  width: 4px;
+  height: 16px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, var(--cv-primary), var(--cv-cyan));
+}
+
+.cv-grid {
+  display: grid;
+  gap: 16px;
+}
+
+/* 等宽代码块（非编辑器场景） */
+.cv-codeblock {
+  font-family: var(--cv-mono);
+  background: #0f1b33;
+  color: #dbe7ff;
+  border-radius: var(--cv-radius);
+  padding: 14px 16px;
+  font-size: 13px;
+  line-height: 1.7;
+  overflow: auto;
+  white-space: pre;
+  margin: 0;
+}
+html.dark .cv-codeblock {
+  background: #0a1426;
+}
+
+/* 难度标签 */
+.diff-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.diff-入门 { background: var(--cv-success-soft); color: var(--cv-success); }
+.diff-基础 { background: var(--cv-primary-soft); color: var(--cv-primary); }
+.diff-进阶 { background: var(--cv-warning-soft); color: var(--cv-warning); }
+.diff-挑战 { background: var(--cv-danger-soft); color: var(--cv-danger); }
+
+/* 路由切换过渡 */
+.fade-slide-enter-active,
+.fade-slide-leave-active {
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+.fade-slide-enter-from {
+  opacity: 0;
+  transform: translateY(8px);
+}
+.fade-slide-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+/* 成功动画 */
+@keyframes cv-pop {
+  0% { transform: scale(0.6); opacity: 0; }
+  60% { transform: scale(1.08); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.cv-pop {
+  animation: cv-pop 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes cv-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  75% { transform: translateX(3px); }
+}
+.cv-shake {
+  animation: cv-shake 0.25s ease;
+}
+
+/* Element Plus 主题对齐 */
+.el-button--primary {
+  --el-button-bg-color: var(--cv-primary);
+  --el-button-border-color: var(--cv-primary);
+  --el-button-hover-bg-color: var(--cv-sky);
+  --el-button-hover-border-color: var(--cv-sky);
+  --el-button-active-bg-color: var(--cv-primary-deep);
+  --el-button-active-border-color: var(--cv-primary-deep);
+}
+
+@media (max-width: 768px) {
+  .cv-page { padding: 14px; }
+}
